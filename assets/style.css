@@ -11,6 +11,12 @@ button {
    margin: auto;
    cursor: pointer;
    font-size: 24px;
-   background-color: purple;
+   background-color: black;
    color: white;
+}
+.homePageBtn{
+    a:link {color: white;}
+    a:hover {color: #FCFC0C}  
+    a:visited {color: white}
+    
 }

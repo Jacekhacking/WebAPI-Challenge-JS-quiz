@@ -50,5 +50,22 @@ var filler = document.getElementById("");
         correct :"C"
         }
 ];
+//loop over questions object
+for( var i = 0; i < questions.length; i++){
+    var answer = "click"(questions[i].a);
+    
+    if(answer == questions[q] .correct){
+        score++;
+        answerIsCorrect();
+    }else {
+        score--;
+        answerIsWrong();
+    }
+
+    
+}
+
+
+
 
 //timer stuff 
