@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+.wraper{
+    max-width: 1170px;
+    margin:0 auto;
+    
+}
+button {
+   padding: 10px;
+   margin: auto;
+   cursor: pointer;
+   font-size: 24px;
+   background-color: purple;
+   color: white;
+}
