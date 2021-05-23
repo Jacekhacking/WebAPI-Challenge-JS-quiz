@@ -1,22 +1,25 @@
 h1 {
     text-align: center;
 }
-.wraper{
-    max-width: 1170px;
-    margin:0 auto;
-    
+body {
+    background-color: rgb(209, 245, 245);
+}
+.container{
+   margin: 0 auto;
+   width: 80%;
+}
+.centered {
+    text-align: center;
 }
 button {
-   padding: 10px;
-   margin: auto;
-   cursor: pointer;
-   font-size: 24px;
-   background-color: black;
-   color: white;
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
 }
-.homePageBtn{
-    a:link {color: white;}
-    a:hover {color: #FCFC0C}  
-    a:visited {color: white}
-    
-}
+.startingBtn {border-radius: 15px;}
