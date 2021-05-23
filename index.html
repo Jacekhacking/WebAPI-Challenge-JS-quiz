@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JS Quiz Challenge</title>
-<link rel="stylesheet" href="./assets/style.css">
+    <title>JS Quiz Challenge</title>
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
-    <div class = "timer">Time: <span id= "time">0<span></div>
+    <div class="timer" style="visibility: hidden;">Time: <span id="time">0<span></div>
 
-    <div class = "scores"><a href="leaderboard.html">View Leaderboard</a></div>
-    
-    <div id = "questions"></div>
+    <div class="scores"><a href="leaderboard.html">View Leaderboard</a></div>
 
-    <div id = "choices">
-        <div class = "choice" id = "A" onclick="checkAnswer('A')"></div>
-        <div class = "choice" id = "B" onclick="checkAnswer('B')"></div>
-        <div class = "choice" id = "C" onclick="checkAnswer('C')"></div>
-        <div class = "choice" id = "D" onclick="checkAnswer('D')"></div>
-    </div>
+    <div id="questions"></div>
 
-    <div class ="container">
+    <div class=" flex-container">
 
-        <div id = "start-page" class = "start">
+        <div id="start-page" class="start">
+            <div>
+                <h1>Coding Quiz Challenge</h1>
+            </div>
 
-        <h1>Coding Quiz Challenge</h1>
+            <div>
+                <p id="opening"> Try to answer the following code-related questions within the time limit. Keep in mind
+                    that incorrect answers will penalize your sore and time by ten seconds!</p>
+            </div>
 
-        <p id= "opening"> Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your sore and time by ten seconds!
-             </p>
+            <div>
+                <button class="startingBtn" id="startBtn" style="visibility: visible;">Start Quiz</button>
+            </div>
 
-        <button class="startingBtn" id= "startBtn">Start Quiz</button>
+            <div class="quiz" id="quiz" style="visibility: hidden;">
+                <div class="question" id="question">This is the question</div>
+                <ol id="answers" style="list-style-type:upper-alpha">
+                    <li></li>
+                </ol>
+                <div class="results" id="results" style="visibility: visible;">
 
-        <div class = "imput-group">
-            <label for="initials">Initials</label>
-            <input 
-            type="text"
-            name="initials"
-            id= "initials"
-            placeholder="" 
-            />
+                </div>
+
+            </div>
+
+            <div class="input-group" style="visibility: hidden;">
+                <label for="initials">Initials</label>
+                <input type="text" name="initials" id="initials" placeholder="" />
+            </div>
         </div>
-    </div>
 
-    <script src= "./assets/script.js"></script>
+        <script src="./assets/script.js"></script>
 </body>
+
 </html>
