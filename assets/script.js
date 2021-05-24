@@ -1,5 +1,3 @@
-
-
 //select elementsById
 var startBtn = document.getElementById("startBtn");
 var quiz_el = document.getElementById("quiz");
