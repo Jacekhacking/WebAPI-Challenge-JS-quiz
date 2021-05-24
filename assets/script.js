@@ -6,19 +6,17 @@ var quiz_el = document.getElementById("quiz");
 var question_el = document.getElementById("question");
 var answers_el = document.getElementById("answers");
 var results_el = document.getElementById("results");
-var timer = document.getElementById("timer");
 var playerInitial = document.querySelector('#initials');
 var highScores = document.querySelector('#highScores');
 var timerEl = document.getElementById("countdown");
 var mainEL = document.getElementById("main");
-
 var currentQuestion = -1;
-var maxQuestions = 2;
-
+var maxQuestions = 3;
+var inputGroup = document.getElementById("inputGroup");
 //var lastQuestion = questions.length -1;
 var runningQuetstions = 0
+var timeLeft = 30;
 //create questions
-
 var questions = [
     {
         question: "Filler question",
@@ -31,28 +29,17 @@ var questions = [
         choices: ["asdlf;kj", "asdfs", "asdfasg", "alsdjkfalsdkjf", "alsdjkfalksdjf"],
         answer: "3",
         used: false
+    }, {
+        question: "Third question",
+        choices: ["filler", "asdfs", "filler", "alsdjkfalsdkjf", "alsdjkfalksdjf"],
+        answer: "3",
+        used: false
     }
 ];
-
-//loop over questions object
-// for (var i = 0; i < questions.length; i++) {
-//     var answer = correct(questions[i].a);
-
-//     if (answer == questions[q].correct) {
-//         timer + 7;
-//         answerIsCorrect();
-//     } else {
-//         timer - 7;
-//         answerIsWrong();
-//     }
-
-
-// }
 
 // function to create questions in html format 
 function nextQuestion() {
 
-    //
     currentQuestion = currentQuestion + 1;
     if (currentQuestion > maxQuestions) {
         return;
@@ -82,11 +69,11 @@ function selectAnswer(myAnswer) {
 
     var q = questions[currentQuestion]
     if (q.answer == myAnswer) {
-        results_el.innerText = "YAY!";
-        timeLeft + 5
+        results_el.innerText = "YAY! Plus 5";
+        timeLeft = timeLeft + 5;
     } else {
-        results_el.innerText = "Boo!";
-        timeLeft -5
+        results_el.innerText = "Boo! Minus 5";
+        timeLeft = timeLeft - 5;
     }
 
     results_el.style.visibility = "visible";
@@ -99,59 +86,38 @@ function selectAnswer(myAnswer) {
     }
 
     endQuiz();
+    results_el.innerText = "That's All FOLKS!!!!"
+    clearInterval(timer);
 }
 
 function endQuiz() {
 
     quiz.style.visibility = "hidden";
+    inputGroup.visibility = "visible";
 
+    function displayScore(type, message) {
+        msgDiv.textContent = message;
+        msgDiv.setAttribute('class', type);
+    }
     // show the results.
-
+    displayScore('Score!' + timeLeft,)
 }
-function countdownTimer() {
-    var timeLeft = 5;
-  
-    // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-    var timeInterval = setInterval(function() {
-      // As long as the `timeLeft` is greater than 1
-      if (timeLeft > 1) {
-        // Set the `textContent` of `timerEl` to show the remaining seconds
-        timerEl.textContent = timeLeft + ' seconds remaining';
-        // Decrement `timeLeft` by 1
-        timeLeft--;
-      } else if (timeLeft === 1) {
-        // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-        timerEl.textContent = timeLeft + ' second remaining';
-        timeLeft--;
-      } else {
-        // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-        timerEl.textContent = '';
-        // Use `clearInterval()` to stop the timer
-        clearInterval(timeInterval);
-        // Call the `displayMessage()` function
-        displayMessage();
-      }
+function timer() {
+
+    var timer = setInterval(function () {
+        if (timeLeft >= 1) {
+            timerEl.textContent = "Time:" + timeLeft;
+            timeLeft--;
+        } else {
+            timerEl.textContent = '';
+            clearInterval(timer);
+            endQuiz();
+
+        }
+
     }, 1000);
-  }
-// //timer stuff 
-// function countdownTimer() {
-//     var timeLeft = 60;
-//     var timeInterval = setInterval(function () {
-//         if (timeLeft > 1) {
-//             timerEl.textContent = 'timeLeft';
-//             timeLeft--;
-//             console.log("hello");
-//         } else if (timeLeft === 1) {
-//             timerEl.textContent =  timeLeft;
-//             timeLeft--;
-//         } else {
-//             timerEl.textContent = timeLeft;
-//             clearInterval(timeInterval);
-//             // make function that shows score asks for initials and submits initials and score to local storage.
-//             insertFunctionHere
-//         }
-//     }, 1000)
-// }
+}
+
 
 
 startBtn.addEventListener("click", function () {
@@ -159,7 +125,7 @@ startBtn.addEventListener("click", function () {
 
     // createQuestions();
     quiz.style.visibility = "visible"
-
+    opening.style.visibility = "hidden";
     nextQuestion();
-    countdownTimer();
+    timer();
 });

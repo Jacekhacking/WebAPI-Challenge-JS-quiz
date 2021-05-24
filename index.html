@@ -10,7 +10,10 @@
 </head>
 
 <body>
-    <div class="timer" style="visibility: hidden;">Time: <span id="time">0<span></div>
+
+    <h2 id="countdown"></h2>
+    <p id="main"></p>
+
 
     <div class="scores"><a href="leaderboard.html">View Leaderboard</a></div>
 
@@ -24,7 +27,8 @@
             </div>
 
             <div>
-                <p id="opening"> Try to answer the following code-related questions within the time limit. Keep in mind
+                <p id="opening" style="visibility: visible;"> Try to answer the following code-related questions within
+                    the time limit. Keep in mind
                     that incorrect answers will penalize your sore and time by ten seconds!</p>
             </div>
 
@@ -43,7 +47,7 @@
 
             </div>
 
-            <div class="input-group" style="visibility: hidden;">
+            <div class="inputGroup" id="inputGroup" style="visibility: hidden;">
                 <label for="initials">Initials</label>
                 <input type="text" name="initials" id="initials" placeholder="" />
             </div>
